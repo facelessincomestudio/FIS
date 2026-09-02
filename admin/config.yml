@@ -7,6 +7,25 @@ media_folder: "assets/images"
 public_folder: "/assets/images"
 
 collections:
+  - name: "pages"
+    label: "Website Pages"
+    files:
+      - file: "index.html"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - { label: "Page Content", name: "body", widget: "markdown" }
+      - file: "about.html"
+        label: "About Page"
+        name: "about"
+        fields:
+          - { label: "Page Content", name: "body", widget: "markdown" }
+      - file: "contact.html"
+        label: "Contact Page"
+        name: "contact"
+        fields:
+          - { label: "Page Content", name: "body", widget: "markdown" }
+
   - name: "content_hub"
     label: "Content Hub (Blogs & Guides)"
     folder: "data/posts"
@@ -18,4 +37,3 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Summary", name: "summary", widget: "text" }
       - { label: "Main Body / Article Content", name: "body", widget: "markdown" }
-      
