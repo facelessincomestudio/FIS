@@ -1,39 +1,50 @@
 backend:
-  name: github
-  repo: facelessincomestudio/FIS
+  name: git-gateway
   branch: main
 
 media_folder: "assets/images"
 public_folder: "/assets/images"
 
 collections:
-  - name: "pages"
-    label: "Website Pages"
-    files:
-      - file: "index.html"
-        label: "Home Page"
-        name: "home"
-        fields:
-          - { label: "Page Content", name: "body", widget: "markdown" }
-      - file: "about.html"
-        label: "About Page"
-        name: "about"
-        fields:
-          - { label: "Page Content", name: "body", widget: "markdown" }
-      - file: "contact.html"
-        label: "Contact Page"
-        name: "contact"
-        fields:
-          - { label: "Page Content", name: "body", widget: "markdown" }
-
-  - name: "content_hub"
-    label: "Content Hub (Blogs & Guides)"
-    folder: "data/posts"
+  # ------------------------------------------------------------------
+  # 1. BLOG POSTS
+  # ------------------------------------------------------------------
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Category", name: "type", widget: "select", options: ["blog", "vlog", "podcast"] }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Summary", name: "summary", widget: "text" }
-      - { label: "Main Body / Article Content", name: "body", widget: "markdown" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Short Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Body Content", name: "body", widget: "markdown" }
+
+  # ------------------------------------------------------------------
+  # 2. DIGITAL PRODUCTS & TEMPLATES
+  # ------------------------------------------------------------------
+  - name: "products"
+    label: "Products & Downloads"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Product Name", name: "title", widget: "string" }
+      - { label: "Price / Label", name: "price", widget: "string", hint: "e.g., $19 or FREE" }
+      - { label: "Product Image", name: "image", widget: "image" }
+      - { label: "Direct Purchase / Checkout Link", name: "external_link", widget: "string", hint: "Paste your Stripe, Stan Store, LemonSqueezy, or Gumroad link here" }
+      - { label: "Description", name: "description", widget: "markdown" }
+
+  # ------------------------------------------------------------------
+  # 3. WEBSITE PAGES & NAVIGATION LINKS
+  # ------------------------------------------------------------------
+  - name: "pages"
+    label: "Website Pages"
+    folder: "content/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Page Title", name: "title", widget: "string" }
+      - { label: "URL Slug / Route", name: "permalink", widget: "string", hint: "e.g., /about or /tools" }
+      - { label: "Page Content", name: "body", widget: "markdown" }
