@@ -1,68 +1,64 @@
 backend:
-  name: github
+  name: git-gateway
   branch: main
 
 media_folder: "assets/images"
 public_folder: "/assets/images"
 
 collections:
-  # ------------------------------------------------------------------
-  # 1. BLOG POSTS & ARTICLES
-  # ------------------------------------------------------------------
-  - name: "blog"
-    label: "Content Hub (Blogs & Guides)"
-    folder: "content/blog"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Cover Image", name: "thumbnail", widget: "image", required: false }
-      - { label: "Short Excerpt", name: "excerpt", widget: "text", required: false }
-      - { label: "Article Content", name: "body", widget: "markdown" }
-
-  # ------------------------------------------------------------------
-  # 2. DIGITAL PRODUCTS & LINK HUB
-  # ------------------------------------------------------------------
-  - name: "products"
-    label: "Products & Templates"
-    folder: "content/products"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Product Name", name: "title", widget: "string" }
-      - { label: "Price / Tagline", name: "price", widget: "string", hint: "e.g., $29 or FREE" }
-      - { label: "Product Image", name: "image", widget: "image" }
-      - { label: "Checkout / External Link", name: "product_link", widget: "string", hint: "Paste your Gumroad, Stan Store, or checkout URL here" }
-      - { label: "Description", name: "body", widget: "markdown" }
-
-  # ------------------------------------------------------------------
-  # 3. WEBSITE PAGES (HOMEPAGE, ABOUT, CONTACT)
-  # ------------------------------------------------------------------
   - name: "pages"
     label: "Website Pages"
     files:
-      - file: "content/pages/home.json"
+      - file: "index.html"
         label: "Home Page"
         name: "home"
         fields:
-          - { label: "Hero Title", name: "hero_title", widget: "string" }
-          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }
-          - { label: "Main Call To Action Button Text", name: "cta_text", widget: "string" }
-          - { label: "Main Call To Action Link", name: "cta_link", widget: "string", hint: "e.g., /products or external URL" }
+          - { label: "Page Content", name: "body", widget: "markdown" }
 
-      - file: "content/pages/about.json"
+      - file: "about.html"
         label: "About Page"
         name: "about"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "About Bio / Content", name: "body", widget: "markdown" }
+          - { label: "Page Content", name: "body", widget: "markdown" }
 
-      - file: "content/pages/contact.json"
+      - file: "guides.html"
+        label: "Guides Page"
+        name: "guides"
+        fields:
+          - { label: "Page Content", name: "body", widget: "markdown" }
+
+      - file: "planners.html"
+        label: "Planners Page"
+        name: "planners"
+        fields:
+          - { label: "Page Content", name: "body", widget: "markdown" }
+
+      - file: "templates.html"
+        label: "Templates Page"
+        name: "templates"
+        fields:
+          - { label: "Page Content", name: "body", widget: "markdown" }
+
+      - file: "art.html"
+        label: "Art Page"
+        name: "art"
+        fields:
+          - { label: "Page Content", name: "body", widget: "markdown" }
+
+      - file: "freebies.html"
+        label: "Freebies Page"
+        name: "freebies"
+        fields:
+          - { label: "Page Content", name: "body", widget: "markdown" }
+
+      - file: "content.html"
+        label: "Content Page"
+        name: "content"
+        fields:
+          - { label: "Page Content", name: "body", widget: "markdown" }
+
+      - file: "contact.html"
         label: "Contact Page"
         name: "contact"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Contact Instructions", name: "body", widget: "markdown" }
-          - { label: "Email Address", name: "email", widget: "string" }
-          
+          - { label: "Page Content", name: "body", widget: "markdown" }
