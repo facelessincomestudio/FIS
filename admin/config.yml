@@ -10,64 +10,76 @@ collections:
   - name: "pages"
     label: "Website Pages"
     files:
-      - file: "index.html"
-        label: "Home Page"
+      - label: "Home Page"
         name: "home"
+        file: "content/pages/home.json"
         fields:
-          - { label: "Page Content", name: "body", widget: "string" }
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Button Label", name: "hero_button", widget: "string" }
 
-      - file: "about.html"
-        label: "About Page"
+      - label: "About Page"
         name: "about"
+        file: "content/pages/about.json"
         fields:
-          - { label: "Page Content", name: "body", widget: "string" }
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Main Text", name: "main_text", widget: "markdown" }
 
-      - file: "guides.html"
-        label: "Guides Page"
+      - label: "Guides Page"
         name: "guides"
+        file: "content/pages/guides.json"
         fields:
-          - { label: "Page Content", name: "body", widget: "string" }
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "text" }
 
-      - file: "planners.html"
-        label: "Planners Page"
+      - label: "Planners Page"
         name: "planners"
+        file: "content/pages/planners.json"
         fields:
-          - { label: "Page Content", name: "body", widget: "string" }
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "text" }
 
-      - file: "templates.html"
-        label: "Templates Page"
+      - label: "Templates Page"
         name: "templates"
+        file: "content/pages/templates.json"
         fields:
-          - { label: "Page Content", name: "body", widget: "string" }
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "text" }
 
-      - file: "art.html"
-        label: "Art Page"
+      - label: "Art Page"
         name: "art"
+        file: "content/pages/art.json"
         fields:
-          - { label: "Page Content", name: "body", widget: "string" }
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "text" }
 
-      - file: "freebies.html"
-        label: "Freebies Page"
+      - label: "Freebies Page"
         name: "freebies"
+        file: "content/pages/freebies.json"
         fields:
-          - { label: "Page Content", name: "body", widget: "string" }
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "text" }
 
-      - file: "content.html"
-        label: "Content Page"
+      - label: "Content Page"
         name: "content"
+        file: "content/pages/content.json"
         fields:
-          - { label: "Page Content", name: "body", widget: "string" }
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "text" }
 
-      - file: "contact.html"
-        label: "Contact Page"
+      - label: "Contact Page"
         name: "contact"
+        file: "content/pages/contact.json"
         fields:
-          - { label: "Page Content", name: "body", widget: "string" }
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Email Address", name: "email", widget: "string" }
 
       - label: "Terms & Privacy Page"
         name: "terms"
-        file: "terms.html"
+        file: "content/pages/terms.json"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body Content", name: "body", widget: "string" }
-      
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Terms Body", name: "body", widget: "markdown" }
