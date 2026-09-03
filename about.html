@@ -68,6 +68,19 @@
     <p>&copy; 2026 Faceless Income Studio. All rights reserved.</p>
   </footer>
 
+  <script>
+  fetch('/content/pages/about.json')
+    .then(response => response.json())
+    .then(data => {
+      if (data.title && document.getElementById('page-title')) {
+        document.getElementById('page-title').innerText = data.title;
+      }
+      if (data.subtitle && document.getElementById('page-subtitle')) {
+        document.getElementById('page-subtitle').innerText = data.subtitle;
+      }
+    });
+  </script>
+  
 </body>
   </html>
                                                                                                                                   
