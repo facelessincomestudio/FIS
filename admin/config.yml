@@ -63,3 +63,11 @@ collections:
         name: "contact"
         fields:
           - { label: "Page Content", name: "body", widget: "markdown" }
+
+      - label: "Terms & Privacy Page"
+        name: "terms"
+        file: "terms.html"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body Content", name: "body", widget: "markdown" }
+      
