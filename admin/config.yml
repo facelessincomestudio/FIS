@@ -14,60 +14,60 @@ collections:
         label: "Home Page"
         name: "home"
         fields:
-          - { label: "Page Content", name: "body", widget: "markdown" }
+          - { label: "Page Content", name: "body", widget: "string" }
 
       - file: "about.html"
         label: "About Page"
         name: "about"
         fields:
-          - { label: "Page Content", name: "body", widget: "markdown" }
+          - { label: "Page Content", name: "body", widget: "string" }
 
       - file: "guides.html"
         label: "Guides Page"
         name: "guides"
         fields:
-          - { label: "Page Content", name: "body", widget: "markdown" }
+          - { label: "Page Content", name: "body", widget: "string" }
 
       - file: "planners.html"
         label: "Planners Page"
         name: "planners"
         fields:
-          - { label: "Page Content", name: "body", widget: "markdown" }
+          - { label: "Page Content", name: "body", widget: "string" }
 
       - file: "templates.html"
         label: "Templates Page"
         name: "templates"
         fields:
-          - { label: "Page Content", name: "body", widget: "markdown" }
+          - { label: "Page Content", name: "body", widget: "string" }
 
       - file: "art.html"
         label: "Art Page"
         name: "art"
         fields:
-          - { label: "Page Content", name: "body", widget: "markdown" }
+          - { label: "Page Content", name: "body", widget: "string" }
 
       - file: "freebies.html"
         label: "Freebies Page"
         name: "freebies"
         fields:
-          - { label: "Page Content", name: "body", widget: "markdown" }
+          - { label: "Page Content", name: "body", widget: "string" }
 
       - file: "content.html"
         label: "Content Page"
         name: "content"
         fields:
-          - { label: "Page Content", name: "body", widget: "markdown" }
+          - { label: "Page Content", name: "body", widget: "string" }
 
       - file: "contact.html"
         label: "Contact Page"
         name: "contact"
         fields:
-          - { label: "Page Content", name: "body", widget: "markdown" }
+          - { label: "Page Content", name: "body", widget: "string" }
 
       - label: "Terms & Privacy Page"
         name: "terms"
         file: "terms.html"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body Content", name: "body", widget: "markdown" }
+          - { label: "Body Content", name: "body", widget: "string" }
       
