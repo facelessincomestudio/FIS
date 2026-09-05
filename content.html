@@ -1,84 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Content - Faceless Income Studio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { cream: '#FBF9F5', ink: '#1C1A18', sand: '#EBE2D5', card: '#FFFFFF', bronze: '#8A6E4B', taupe: '#E2DDD5', charcoal: '#4B465C' },
-          fontFamily: { serif: ['Playfair Display', 'Georgia', 'serif'], sans: ['Inter', 'system-ui', 'sans-serif'] }
-        }
-      }
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Content Hub - Faceless Income Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-cream text-ink antialiased min-h-screen flex flex-col justify-between">
+<body class="bg-amber-50/30 text-gray-800 min-h-screen flex flex-col justify-between">
 
-  <header class="fixed top-0 left-0 right-0 z-50 bg-cream/80 backdrop-blur border-b border-taupe/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 lg:h-20">
-        <a href="index.html" class="flex items-center gap-3 group">
-          <span class="font-serif font-bold text-xl tracking-tight">Faceless Income Studio</span>
-        </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-charcoal">
-          <a href="index.html" class="hover:text-bronze transition-colors">Home</a>
-          <a href="about.html" class="hover:text-bronze transition-colors">About</a>
-          <a href="guides.html" class="hover:text-bronze transition-colors">Guides</a>
-          <a href="planners.html" class="hover:text-bronze transition-colors">Planners</a>
-          <a href="templates.html" class="hover:text-bronze transition-colors">Templates</a>
-          <a href="art.html" class="hover:text-bronze transition-colors">Art</a>
-          <a href="freebies.html" class="hover:text-bronze transition-colors">Freebies</a>
-          <a href="content.html" class="hover:text-bronze transition-colors">Content</a>
-          <a href="contact.html" class="hover:text-bronze transition-colors">Contact</a>
-        </nav>
-      </div>
-    </div>
-  </header>
+    <header class="p-6 border-b border-taupe/20 bg-white">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="/" class="font-serif font-bold text-xl">Faceless Income Studio</a>
+            <a href="/" class="text-sm text-gray-600 hover:text-black">← Back Home</a>
+        </div>
+    </header>
 
-  <main class="pt-32 pb-20 px-4 max-w-7xl mx-auto flex-grow">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <h1 id="page-title" class="font-serif text-4xl sm:text-5xl font-bold text-ink mb-4">Content Hub</h1>
-      <p id="page-subtitle" class="text-charcoal text-lg">Practical content strategies and ideas to help you grow online without needing to be on camera.</p>
-    </div>
+    <main class="max-w-4xl mx-auto p-6 flex-grow w-full">
+        <div class="text-center my-8">
+            <h1 class="text-3xl md:text-4xl font-serif font-bold mb-3">Free Content Hub</h1>
+            <p class="text-gray-600 max-w-xl mx-auto">Explore our free articles, vlogs, and podcast episodes on building digital income streams.</p>
+        </div>
 
-    <div id="page-body" class="max-w-3xl mx-auto space-y-6 text-charcoal"></div>
+        <div id="content-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8"></div>
+    </main>
 
-  </main>
+    <footer class="p-6 text-center text-xs text-gray-500 border-t border-taupe/20 bg-white mt-12">
+        <p>&copy; 2026 Faceless Income Studio. All rights reserved.</p>
+    </footer>
 
-  <footer class="border-t border-taupe bg-sand/30 py-8 text-center text-sm text-charcoal">
-    <p>&copy; 2026 Faceless Income Studio. All rights reserved.</p>
-  </footer>
+    <script>
+    fetch('/content/contents.json')
+      .then(res => res.json())
+      .then(data => {
+        const items = data.content || data;
+        const container = document.getElementById('content-grid');
+        if (!container) return;
 
-<script>
-  fetch('/content/pages/content.json')
-    .then(response => response.json())
-    .then(data => {
-      if (data.title && document.getElementById('page-title')) {
-        document.getElementById('page-title').innerText = data.title;
-      }
-      if (data.subtitle && document.getElementById('page-subtitle')) {
-        document.getElementById('page-subtitle').innerText = data.subtitle;
-      }
-      if (data.body && document.getElementById('page-body')) {
-        // Formats headings and line breaks properly from Markdown
-        let htmlContent = data.body
-          .replace(/^### (.*$)/gim, '<h3 class="text-xl font-bold mt-4 mb-2">$1</h3>')
-          .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold mt-6 mb-3">$1</h2>')
-          .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mt-8 mb-4">$1</h1>')
-          .replace(/\n/g, '<br />');
-        
-        document.getElementById('page-body').innerHTML = htmlContent;
-      }
-    });
-</script>
-  
+        container.innerHTML = items.map(item => `
+          <div class="border rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div>
+              <img src="${item.image}" alt="${item.title}" class="w-full h-40 object-cover">
+              <div class="p-4">
+                <span class="text-xs text-amber-700 uppercase tracking-wider font-semibold">${item.type}</span>
+                <h3 class="text-md font-bold mt-1">${item.title}</h3>
+                <p class="text-xs text-gray-600 mt-2">${item.excerpt}</p>
+              </div>
+            </div>
+            <div class="p-4 pt-0 flex items-center justify-between text-xs text-gray-500">
+              <span>${item.readTime || item.duration || item.date}</span>
+              <a href="${item.url}" class="font-semibold text-black hover:underline">Read / Watch →</a>
+            </div>
+          </div>
+        `).join('');
+      })
+      .catch(err => console.error('Error loading contents:', err));
+    </script>
 </body>
-      </html>
-      
+</html>
