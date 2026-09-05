@@ -57,7 +57,8 @@
     <p>&copy; 2026 Faceless Income Studio. All rights reserved.</p>
   </footer>
 
-  <script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
   fetch('/content/pages/about.json')
     .then(response => response.json())
     .then(data => {
@@ -67,18 +68,12 @@
       if (data.subtitle && document.getElementById('page-subtitle')) {
         document.getElementById('page-subtitle').innerText = data.subtitle;
       }
-     let htmlContent = data.main_text
-  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-  .replace(/^### (.*$)/gim, '<h3 class="text-xl font-bold mt-4 mb-2">$1</h3>')
-  .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold mt-6 mb-3">$1</h2>')
-  .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mt-8 mb-4">$1</h1>')
-  .replace(/\n\n/g, '</p><p class="mt-4">')
-  .replace(/\n/g, '<br />');
-
-document.getElementById('page-body').innerHTML = '<p>' + htmlContent + '</p>';
-
-  document.getElementById('page-body').innerHTML = htmlContent;
-}
+      if (data.main_text && document.getElementById('page-body')) {
+        // Safe, automatic markdown parsing
+        document.getElementById('page-body').innerHTML = marked.parse(data.main_text);
+      }
+    });
+</script>
     });
 </script>
   
