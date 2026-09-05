@@ -1,0 +1,34 @@
+{
+  "content": [
+    {
+      "id": 1,
+      "type": "blog",
+      "title": "How I Made My First $1,000 Faceless",
+      "excerpt": "The exact strategy used to launch and monetize without showing my face.",
+      "image": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop",
+      "date": "2026-01-15",
+      "readTime": "8 min read",
+      "url": "#"
+    },
+    {
+      "id": 2,
+      "type": "vlog",
+      "title": "Setting Up Your Faceless Brand",
+      "excerpt": "A complete walkthrough on setting up socials and automated funnels.",
+      "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&h=400&fit=crop",
+      "date": "2026-01-20",
+      "duration": "12:34",
+      "url": "#"
+    },
+    {
+      "id": 3,
+      "type": "podcast",
+      "title": "Building Passive Digital Income Streams",
+      "excerpt": "An in-depth breakdown on scaling affiliate marketing and Pinterest strategy.",
+      "image": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&h=400&fit=crop",
+      "date": "2026-02-01",
+      "duration": "24:15",
+      "url": "#"
+    }
+  ]
+    }
