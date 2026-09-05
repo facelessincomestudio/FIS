@@ -731,7 +731,8 @@
         // Load products data
         async function loadProducts() {
             try {
-                const response = await fetch('data/products.json');
+                const response = await const response = await fetch('/content/products.json');
+
                 const products = await response.json();
                 renderProducts(products);
             } catch (error) {
@@ -743,16 +744,19 @@
         }
 
         function getMockProducts() {
-            return [
-                {
-                    
-    <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-                
-                }
-                
-                }
-            ];
+    return [
+        {
+            id: 1,
+            title: "Pinterest Traffic Blueprint",
+            category: "guides",
+            price: 47,
+            description: "A complete system for driving consistent traffic to your offers.",
+            image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07",
+            gumroadLink: "https://gumroad.com"
         }
+    ];
+}
+
 
         function renderProducts(products) {
             // Featured products on homepage
