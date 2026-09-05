@@ -729,18 +729,18 @@
         mainContent.innerHTML = currentPage;
 
         // Load products data
-        async function loadProducts() {
-            try {
-                const response = await fetch('data/products.json');
-                const products = await response.json();
-                renderProducts(products);
-            } catch (error) {
-                console.error('Error loading products:', error);
-                // Use fallback mock data
-                const mockProducts = getMockProducts();
-                renderProducts(mockProducts);
-            }
-        }
+async function loadProducts() {
+    try {
+        const response = await fetch('/content/products.json');
+        const data = await response.json();
+        const products = data.products || data;
+        renderProducts(products);
+    } catch (error) {
+        console.error('Error loading products:', error);
+        const mockProducts = getMockProducts();
+        renderProducts(mockProducts);
+    }
+}
 
         function getMockProducts() {
             return [
