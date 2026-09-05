@@ -57,28 +57,41 @@
   </footer>
 
   <script>
-  fetch('/content/pages/guides.json')
-    .then(response => response.json())
-    .then(data => {
-      if (data.title && document.getElementById('page-title')) {
-        document.getElementById('page-title').innerText = data.title;
-      }
-      if (data.subtitle && document.getElementById('page-subtitle')) {
-        document.getElementById('page-subtitle').innerText = data.subtitle;
-      }
-      if (data.body && document.getElementById('page-body')) {
-        // Formats headings and line breaks properly from Markdown
-        let htmlContent = data.body
-          .replace(/^### (.*$)/gim, '<h3 class="text-xl font-bold mt-4 mb-2">$1</h3>')
-          .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold mt-6 mb-3">$1</h2>')
-          .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mt-8 mb-4">$1</h1>')
-          .replace(/\n/g, '<br />');
-        
-        document.getElementById('page-body').innerHTML = htmlContent;
-      }
-    });
-  </script>
-  
+// Load Page Title & Subtitle
+fetch('/content/pages/guides.json')
+  .then(res => res.json())
+  .then(data => {
+    if (data.title && document.getElementById('page-title')) document.getElementById('page-title').innerText = data.title;
+    if (data.subtitle && document.getElementById('page-subtitle')) document.getElementById('page-subtitle').innerText = data.subtitle;
+  });
+
+// Fetch & Render Guides Products
+fetch('/content/products.json')
+  .then(res => res.json())
+  .then(data => {
+    const products = data.products || data;
+    const guides = products.filter(p => p.category === 'guides');
+    const container = document.getElementById('guides-grid');
+    if (!container) return;
+
+    container.innerHTML = guides.map(item => `
+      <div class="border rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition">
+        <img src="${item.image}" alt="${item.title}" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <span class="text-xs text-taupe uppercase tracking-wider">${item.category}</span>
+          <h3 class="text-lg font-bold mt-1">${item.title}</h3>
+          <p class="text-sm text-gray-600 mt-2">${item.description}</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="font-semibold">$${item.price}</span>
+            <a href="${item.gumroadLink}" class="bg-black text-white px-4 py-2 rounded text-sm hover:bg-gray-800">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  })
+  .catch(err => console.error('Error loading guides:', err));
+</script>
+
 </body>
       </html>
   
