@@ -62,12 +62,26 @@ collections:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Page Subtitle", name: "subtitle", widget: "markdown" }
 
-      - label: "Content Page"
-        name: "content"
-        file: "content/pages/content.json"
+       - name: "free_content"
+    label: "Free Content Hub"
+    files:
+      - file: "content/contents.json"
+        label: "Articles & Media"
+        name: "contents"
         fields:
-          - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Page Subtitle", name: "subtitle", widget: "markdown" }
+          - name: "content"
+            label: "Content List"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.type}})"
+            fields:
+              - { label: "ID", name: "id", widget: "number", value_type: "int" }
+              - { label: "Type", name: "type", widget: "select", options: ["blog", "vlog", "podcast"] }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Excerpt", name: "excerpt", widget: "text" }
+              - { label: "Image URL", name: "image", widget: "image" }
+              - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "Read Time / Duration", name: "readTime", widget: "string" }
+              - { label: "Link URL", name: "url", widget: "string" }
 
       - label: "Contact Page"
         name: "contact"
