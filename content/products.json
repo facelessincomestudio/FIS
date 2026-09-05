@@ -2,12 +2,12 @@
   "products": [
     {
       "id": 1,
-      "title": "Pinterest Traffic Blueprint",
-      "category": "guides",
-      "price": 47,
-      "description": "A complete system for driving consistent traffic to your offers using Pinterest. No ads required.",
-      "image": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop",
-      "gumroadLink": "https://gumroad.com/l/pinterest-blueprint"
+      "title": "The All-In-One Business Starter Bundle: Invoice, Contract & Pricing Templates (Plug & Play)",
+      "category": "templates",
+      "price": 12,
+      "description": "This bundle is a collection of fully customizable, professionally designed, and pre-formatted templates that cover the three core pillars of client management:\n\nPricing & Service Guide Template: Present your packages clearly so clients instantly see your value.\n\nProfessional Invoice Template: Ensure clear terms, itemized breakdowns, and easy payment instructions.\n\nClient Contract & Agreement Template: Protect your work, define clear deliverables, avoid scope creep, and secure your payment terms.",
+      "image": "/assets/images/e7c618db-8eb2-489e-bdc5-0e776f36e395_20260830_032535_0000.png",
+      "gumroadLink": "https://facelessincomestudio.gumroad.com/l/business-starter-bundle"
     },
     {
       "id": 2,
