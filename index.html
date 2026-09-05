@@ -745,7 +745,14 @@
         function getMockProducts() {
             return [
                 {
-                    <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    "id": 1,
+    "title": "Pinterest Traffic Blueprint",
+    "category": "guides",
+    "price": 47,
+    "description": "A complete system for driving consistent traffic to your offers using Pinterest.",
+    "image": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07",
+    "gumroadLink": "https://gumroad.com"
+                }
                 
                 }
             ];
@@ -995,21 +1002,18 @@
     </script>
 
     <script>
-  // Set to "guides", "planners", "templates", "art", "freebies", or "" for all
-  const categoryFilter = ""; 
-
+  // Load products dynamically
   fetch('/content/products.json')
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error('JSON file not found');
+      return res.json();
+    })
     .then(products => {
-      const grid = document.getElementById('categoryProducts');
+      const grid = document.getElementById('categoryProducts') || document.getElementById('product-grid');
       if (!grid) return;
       grid.innerHTML = '';
-      
-      const filtered = categoryFilter 
-        ? products.filter(item => item.category.toLowerCase() === categoryFilter.toLowerCase())
-        : products;
 
-      filtered.forEach(item => {
+      products.forEach(item => {
         grid.innerHTML += `
           <div class="bg-card border border-taupe rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
             <img src="${item.image}" alt="${item.title}" class="w-full h-48 object-cover">
@@ -1019,14 +1023,16 @@
               <p class="text-charcoal text-sm mb-6">${item.description}</p>
               <div class="flex items-center justify-between">
                 <span class="font-bold text-lg">$${item.price}</span>
-                <a href="${item.gumroadLink || item.url}" target="_blank" class="bg-ink text-cream px-5 py-2 rounded-xl text-sm font-semibold">Buy Now</a>
+                <a href="${item.gumroadLink || item.url || '#'}" target="_blank" class="bg-ink text-cream px-5 py-2 rounded-xl text-sm font-semibold">Buy Now</a>
               </div>
             </div>
           </div>
         `;
       });
-    });
+    })
+    .catch(err => console.error('Error loading products:', err));
 </script>
+
     
 </body>
 </html>
