@@ -33,6 +33,7 @@ collections:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Page Subtitle", name: "subtitle", widget: "markdown" }
 
+
       - label: "Planners Page"
         name: "planners"
         file: "content/pages/planners.json"
@@ -83,3 +84,25 @@ collections:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Page Subtitle", name: "subtitle", widget: "string" }
           - { label: "Terms Body", name: "body", widget: "markdown" }
+
+    
+  - name: "products_data"
+    label: "Products List"
+    files:
+      - file: "content/products.json"
+        label: "Products"
+        name: "products"
+        fields:
+          - name: "products"
+            label: "Products"
+            widget: "list"
+            summary: "{{fields.title}} - ${{fields.price}}"
+            fields:
+              - { label: "ID", name: "id", widget: "number", value_type: "int" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Category", name: "category", widget: "select", options: ["guides", "planners", "templates", "art", "freebies"] }
+              - { label: "Price ($)", name: "price", widget: "number", value_type: "int" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Image URL", name: "image", widget: "image" }
+              - { label: "Gumroad / Purchase Link", name: "gumroadLink", widget: "string" }
+              
