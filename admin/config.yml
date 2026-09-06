@@ -121,4 +121,18 @@ collections:
               - { label: "Date", name: "date", widget: "string" }
               - { label: "Read Time / Duration", name: "readTime", widget: "string" }
               - { label: "Link URL", name: "url", widget: "string" }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "content/settings.json"
+        label: "Social Media Links"
+        name: "socials"
+        fields:
+          - { label: "Pinterest URL", name: "pinterest", widget: "string" }
+          - { label: "Instagram URL", name: "instagram", widget: "string" }
+          - { label: "TikTok URL", name: "tiktok", widget: "string" }
+          - { label: "YouTube URL", name: "youtube", widget: "string" }
+          - { label: "Reddit URL", name: "reddit", widget: "string" }
+          
               
