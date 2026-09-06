@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Content Hub- Faceless Income Studio</title>
+    <title>Content Hub - Faceless Income Studio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -104,6 +104,13 @@
         if(data.subtitle) document.getElementById('page-subtitle').innerText = data.subtitle;
         if(data.main_text) document.getElementById('page-content').innerText = data.main_text;
       }).catch(e => console.log(e));
+
+    fetch('/content/contents.json')
+      .then(res => res.json())
+      .then(data => {
+        const items = (data.content || data).slice(0, 3);
+        const container = document.getElementById('blog-preview-grid');
+        if (!container) return;
 
         container.innerHTML = items.map(item => `
           <div class="bg-white p-4 rounded-lg border border-gray-100 flex flex-col justify-between">
