@@ -16,6 +16,7 @@ collections:
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Page Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Main Text", name: "main_text", widget: "markdown" }
 
       - label: "About Page"
         name: "about"
@@ -23,48 +24,63 @@ collections:
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Page Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Main Text", name: "main_text", widget: "markdown" }
 
       - label: "Contact Page"
         name: "contact"
         file: "content/pages/contact.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Main Text", name: "main_text", widget: "markdown" }
 
       - label: "Guides Page"
         name: "guides"
         file: "content/pages/guides.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Main Text", name: "main_text", widget: "markdown" }
 
       - label: "Planners Page"
         name: "planners"
         file: "content/pages/planners.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Main Text", name: "main_text", widget: "markdown" }
 
       - label: "Templates Page"
         name: "templates"
         file: "content/pages/templates.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Main Text", name: "main_text", widget: "markdown" }
 
       - label: "Art Page"
         name: "art"
         file: "content/pages/art.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Main Text", name: "main_text", widget: "markdown" }
 
       - label: "Freebies Page"
         name: "freebies"
         file: "content/pages/freebies.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Main Text", name: "main_text", widget: "markdown" }
 
       - label: "Terms Page"
         name: "terms"
         file: "content/pages/terms.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Main Text", name: "main_text", widget: "markdown" }
 
   - name: "products_data"
     label: "Products List"
