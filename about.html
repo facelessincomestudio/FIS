@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Faceless Income Studio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-[#FAF8F5] text-gray-800 min-h-screen flex flex-col justify-between">
@@ -25,7 +26,7 @@
             <div id="page-content" class="prose max-w-none text-gray-700 leading-relaxed space-y-4"></div>
         </div>
 
-        <!-- Featured Blog / Content Section -->
+        <!-- Featured Blog Section -->
         <section class="border-t border-gray-200 pt-12 mt-16">
             <div class="flex justify-between items-end mb-8">
                 <div>
@@ -102,7 +103,9 @@
       .then(data => {
         if(data.title) document.getElementById('page-title').innerText = data.title;
         if(data.subtitle) document.getElementById('page-subtitle').innerText = data.subtitle;
-        if(data.main_text) document.getElementById('page-content').innerText = data.main_text;
+        if(data.main_text) {
+          document.getElementById('page-content').innerHTML = marked.parse(data.main_text);
+        }
       }).catch(e => console.log(e));
 
     fetch('/content/contents.json')
