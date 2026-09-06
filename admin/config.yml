@@ -15,8 +15,8 @@ collections:
         file: "content/pages/home.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Page Subtitle", name: "subtitle", widget: "markdown" }
-          - { label: "Button Label", name: "hero_button", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Button Label", name: "heroButton", widget: "string" }
 
       - label: "About Page"
         name: "about"
@@ -31,54 +31,36 @@ collections:
         file: "content/pages/guides.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Page Subtitle", name: "subtitle", widget: "markdown" }
-
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
 
       - label: "Planners Page"
         name: "planners"
         file: "content/pages/planners.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Page Subtitle", name: "subtitle", widget: "markdown" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
 
       - label: "Templates Page"
         name: "templates"
         file: "content/pages/templates.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Page Subtitle", name: "subtitle", widget: "markdown" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
 
       - label: "Art Page"
         name: "art"
         file: "content/pages/art.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Page Subtitle", name: "subtitle", widget: "markdown" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
 
       - label: "Freebies Page"
         name: "freebies"
         file: "content/pages/freebies.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Page Subtitle", name: "subtitle", widget: "markdown" }
-
-      - label: "Contact Page"
-        name: "contact"
-        file: "content/pages/contact.json"
-        fields:
-          - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Page Subtitle", name: "subtitle", widget: "markdown" }
-          - { label: "Email Address", name: "email", widget: "string" }
-
-      - label: "Terms & Privacy Page"
-        name: "terms"
-        file: "content/pages/terms.json"
-        fields:
-          - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Page Subtitle", name: "subtitle", widget: "string" }
-          - { label: "Terms Body", name: "body", widget: "markdown" }
 
-    
   - name: "products_data"
     label: "Products List"
     files:
@@ -89,17 +71,17 @@ collections:
           - name: "products"
             label: "Products"
             widget: "list"
-            summary: "{{fields.title}} - ${{fields.price}}"
+            summary: "{{fields.title}} (${{fields.price}})"
             fields:
               - { label: "ID", name: "id", widget: "number", value_type: "int" }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Category", name: "category", widget: "select", options: ["guides", "planners", "templates", "art", "freebies"] }
               - { label: "Price ($)", name: "price", widget: "number", value_type: "int" }
               - { label: "Description", name: "description", widget: "text" }
-              - { label: "Image URL", name: "image", widget: "image" }
-              - { label: "Gumroad / Purchase Link", name: "gumroadLink", widget: "string" }
+              - { label: "Image URL", name: "image", widget: "string" }
+              - { label: "Gumroad Link", name: "gumroadLink", widget: "string" }
 
-    - name: "free_content"
+  - name: "free_content"
     label: "Free Content Hub"
     files:
       - file: "content/contents.json"
@@ -119,5 +101,3 @@ collections:
               - { label: "Date", name: "date", widget: "string" }
               - { label: "Read Time / Duration", name: "readTime", widget: "string" }
               - { label: "Link URL", name: "url", widget: "string" }
-
-              
