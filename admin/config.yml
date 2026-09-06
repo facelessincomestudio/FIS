@@ -16,7 +16,6 @@ collections:
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Page Subtitle", name: "subtitle", widget: "string" }
-          - { label: "Button Label", name: "heroButton", widget: "string" }
 
       - label: "About Page"
         name: "about"
@@ -24,42 +23,48 @@ collections:
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Page Subtitle", name: "subtitle", widget: "string" }
-          - { label: "Main Text", name: "main_text", widget: "markdown" }
+
+      - label: "Contact Page"
+        name: "contact"
+        file: "content/pages/contact.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
 
       - label: "Guides Page"
         name: "guides"
         file: "content/pages/guides.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
 
       - label: "Planners Page"
         name: "planners"
         file: "content/pages/planners.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
 
       - label: "Templates Page"
         name: "templates"
         file: "content/pages/templates.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
 
       - label: "Art Page"
         name: "art"
         file: "content/pages/art.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
 
       - label: "Freebies Page"
         name: "freebies"
         file: "content/pages/freebies.json"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
-          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
+
+      - label: "Terms Page"
+        name: "terms"
+        file: "content/pages/terms.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
 
   - name: "products_data"
     label: "Products List"
@@ -91,13 +96,13 @@ collections:
           - name: "content"
             label: "Content List"
             widget: "list"
-            summary: "{{fields.title}} ({{fields.type}})"
             fields:
-              - { label: "ID", name: "id", widget: "number", value_type: "int" }
-              - { label: "Type", name: "type", widget: "select", options: ["blog", "vlog", "podcast"] }
+              - { label: "ID", name: "id", widget: "number" }
+              - { label: "Type", name: "type", widget: "string" }
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Excerpt", name: "excerpt", widget: "text" }
+              - { label: "Excerpt", name: "excerpt", widget: "string" }
               - { label: "Image URL", name: "image", widget: "string" }
               - { label: "Date", name: "date", widget: "string" }
               - { label: "Read Time / Duration", name: "readTime", widget: "string" }
               - { label: "Link URL", name: "url", widget: "string" }
+              
