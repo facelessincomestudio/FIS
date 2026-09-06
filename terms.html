@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms & Privacy - Faceless Income Studio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Terms & Privacy- Faceless Income Studio</title>
+    <!-- Tailwind CSS with Typography Plugin -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Fallback typography formatting */
+        #page-content h1 { font-size: 2.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        #page-content h2 { font-size: 1.75rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        #page-content h3 { font-size: 1.35rem; font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+        #page-content p { margin-bottom: 1rem; line-height: 1.75; }
+        #page-content strong { font-weight: 700; }
+        #page-content em { font-style: italic; }
+    </style>
 </head>
 <body class="bg-[#FAF8F5] text-gray-800 min-h-screen flex flex-col justify-between">
 
@@ -22,10 +33,10 @@
         <div class="my-10">
             <h1 id="page-title" class="text-3xl md:text-5xl font-serif font-bold mb-4">About Us</h1>
             <p id="page-subtitle" class="text-gray-600 text-base md:text-lg mb-8"></p>
-            <div id="page-content" class="prose max-w-none text-gray-700 leading-relaxed space-y-4"></div>
+            <div id="page-content" class="prose prose-amber max-w-none text-gray-700 leading-relaxed"></div>
         </div>
 
-        <!-- Featured Blog / Content Section -->
+        <!-- Featured Blog Section -->
         <section class="border-t border-gray-200 pt-12 mt-16">
             <div class="flex justify-between items-end mb-8">
                 <div>
@@ -102,7 +113,9 @@
       .then(data => {
         if(data.title) document.getElementById('page-title').innerText = data.title;
         if(data.subtitle) document.getElementById('page-subtitle').innerText = data.subtitle;
-        if(data.main_text) document.getElementById('page-content').innerText = data.main_text;
+        if(data.main_text) {
+          document.getElementById('page-content').innerHTML = marked.parse(data.main_text);
+        }
       }).catch(e => console.log(e));
 
     fetch('/content/contents.json')
@@ -125,4 +138,4 @@
       });
     </script>
 </body>
-</html>
+                                                                                                  </html>
