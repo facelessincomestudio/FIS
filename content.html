@@ -18,24 +18,14 @@
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-4xl mx-auto p-6 flex-grow w-full">
-        <div class="my-10">
-            <h1 id="page-title" class="text-3xl md:text-5xl font-serif font-bold mb-4">About Us</h1>
-            <p id="page-subtitle" class="text-gray-600 text-base md:text-lg mb-8"></p>
-            <div id="page-content" class="prose max-w-none text-gray-700 leading-relaxed space-y-4"></div>
+    <main class="max-w-6xl mx-auto p-6 flex-grow w-full">
+        <div class="text-center my-10 max-w-2xl mx-auto">
+            <h1 class="text-3xl md:text-5xl font-serif font-bold mb-4">Content Hub</h1>
+            <p class="text-gray-600 text-base md:text-lg">Explore our full library of blogs, vlogs, and podcast episodes.</p>
         </div>
 
-        <!-- Featured Blog / Content Section -->
-        <section class="border-t border-gray-200 pt-12 mt-16">
-            <div class="flex justify-between items-end mb-8">
-                <div>
-                    <h2 class="text-2xl font-serif font-bold">Latest Free Resources</h2>
-                    <p class="text-sm text-gray-600 mt-1">Free tips, articles, and guides to help you grow.</p>
-                </div>
-                <a href="/content.html" class="text-sm font-semibold text-amber-800 hover:underline">View All →</a>
-            </div>
-            <div id="blog-preview-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
-        </section>
+        <!-- Full Content List Grid -->
+        <div id="content-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"></div>
     </main>
 
     <!-- Homepage Footer -->
@@ -95,31 +85,29 @@
         </div>
     </footer>
 
-    <!-- Dynamic Fetching -->
+    <!-- Fetch All Content Items -->
     <script>
-    fetch('/content/pages/contents.json')
-      .then(res => res.json())
-      .then(data => {
-        if(data.title) document.getElementById('page-title').innerText = data.title;
-        if(data.subtitle) document.getElementById('page-subtitle').innerText = data.subtitle;
-        if(data.main_text) document.getElementById('page-content').innerText = data.main_text;
-      }).catch(e => console.log(e));
-
     fetch('/content/contents.json')
       .then(res => res.json())
       .then(data => {
-        const items = (data.content || data).slice(0, 3);
-        const container = document.getElementById('blog-preview-grid');
+        const items = data.content || data;
+        const container = document.getElementById('content-grid');
         if (!container) return;
 
         container.innerHTML = items.map(item => `
-          <div class="bg-white p-4 rounded-lg border border-gray-100 flex flex-col justify-between">
-            <div>
-              <span class="text-[10px] uppercase font-bold text-amber-700 tracking-wider">${item.type}</span>
-              <h4 class="font-bold text-sm mt-1">${item.title}</h4>
-              <p class="text-xs text-gray-500 mt-1 line-clamp-2">${item.excerpt}</p>
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 flex flex-col justify-between">
+            ${item.image ? `<img src="${item.image}" alt="${item.title}" class="w-full h-48 object-cover">` : ''}
+            <div class="p-5 flex-grow flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs uppercase font-bold tracking-wider text-amber-800">${item.type}</span>
+                  <span class="text-xs text-gray-400">${item.date || ''}</span>
+                </div>
+                <h3 class="font-serif font-bold text-lg mt-2 text-gray-900">${item.title}</h3>
+                <p class="text-xs text-gray-600 mt-2 leading-relaxed">${item.excerpt}</p>
+              </div>
+              <a href="${item.url || '#'}" class="text-xs font-bold text-black mt-4 block hover:underline">Read / Watch More →</a>
             </div>
-            <a href="${item.url || '/content.html'}" class="text-xs font-semibold text-black mt-3 block hover:underline">Read More →</a>
           </div>
         `).join('');
       });
